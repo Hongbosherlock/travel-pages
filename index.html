@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>旅行的意义</title>
+    <meta
+      name="description"
+      content="旅行的意义：一份关于远方、光线与记忆的旅行地图。"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=20260929l" />
+  </head>
+  <body data-page="home" class="atlas-page">
+    <div class="site-shell atlas-shell">
+      <header class="atlas-header">
+        <a class="brand" href="./index.html" aria-label="旅行的意义首页">
+          <span class="brand-mark">旅行的意义</span>
+          <span class="brand-note">远方，光线与记忆</span>
+        </a>
+        <nav class="site-nav" aria-label="主导航">
+          <a href="./index.html" aria-current="page">地图</a>
+          <a href="./about.html">关于</a>
+          <a href="https://photo.leoneo.top/">PHOTO ↗</a>
+        </nav>
+      </header>
+
+      <main class="atlas-main">
+        <section class="atlas-map-section" aria-label="世界旅行地图">
+          <div class="atlas-intro">
+            <div class="atlas-intro-copy">
+              <p class="atlas-eyebrow">To Wander Is to Wake</p>
+            </div>
+            <div class="atlas-meta">
+              <p><strong id="journey-count">00</strong><span>Chapters</span></p>
+            </div>
+          </div>
+
+          <div class="world-map-frame">
+            <div class="map-toolbar">
+              <div>
+                <p class="map-toolbar-label">Places That Stay</p>
+                <p class="map-toolbar-title">山川作卷，足迹成书</p>
+              </div>
+              <p class="map-instruction"><span aria-hidden="true">●</span> 点击国家靠近 · 点击城市展开</p>
+            </div>
+
+            <div class="map-stage">
+              <button id="map-return" class="map-return" type="button" hidden>← 返回世界</button>
+              <div class="map-zoom-controls" aria-label="地图缩放">
+                <button id="map-zoom-in" type="button" aria-label="放大地图" title="放大地图">+</button>
+                <button id="map-zoom-out" type="button" aria-label="缩小地图" title="缩小地图" disabled>−</button>
+              </div>
+              <div class="map-canvas-scroll">
+                <div id="map-canvas" class="map-canvas" aria-busy="true">
+                  <svg
+                    id="world-map"
+                    class="world-map"
+                    viewBox="0 0 1000 500"
+                    role="img"
+                    aria-label="可缩放和拖动的世界旅行地图"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <g id="country-layer" class="country-layer"></g>
+                    <g id="marker-layer" class="marker-layer"></g>
+                  </svg>
+
+                  <article id="map-hover-card" class="map-hover-card" hidden>
+                    <button id="map-card-open" class="map-card-media" type="button" aria-label="打开照片墙">
+                      <img
+                        id="map-card-image"
+                        src=""
+                        alt=""
+                        width="160"
+                        height="160"
+                        decoding="async"
+                      />
+                    </button>
+                    <div class="map-hover-card-copy">
+                      <p id="map-card-region" class="map-card-region"></p>
+                      <h2 id="map-card-title"></h2>
+                      <p id="map-card-meta" class="map-card-meta"></p>
+                    </div>
+                  </article>
+
+                  <p id="map-status" class="map-status" aria-live="polite">正在绘制世界地图…</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="map-legend" aria-label="地图图例">
+              <span><i class="legend-country"></i> 走过的国度</span>
+              <span><i class="legend-city"></i> 留下的地点</span>
+              <a href="https://www.naturalearthdata.com/">Map data · Natural Earth</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer atlas-footer">
+        <p class="footer-copy">世界在路上展开，也在记忆里继续。</p>
+        <div class="footer-links">
+          <a href="./about.html">关于</a>
+          <div id="social-links" class="social-links"></div>
+        </div>
+      </footer>
+    </div>
+
+    <section
+      id="journey-wall"
+      class="journey-wall"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="journey-wall-title"
+      hidden
+    >
+      <div class="journey-wall-backdrop" data-close-wall="true"></div>
+      <div class="journey-wall-shell">
+        <button id="journey-wall-close" class="journey-wall-close" type="button">
+          <span aria-hidden="true">←</span> 返回世界地图
+        </button>
+        <header class="journey-wall-header">
+          <div>
+            <p id="journey-wall-region" class="journey-wall-region"></p>
+            <h2 id="journey-wall-title"></h2>
+          </div>
+          <div class="journey-wall-intro">
+            <p id="journey-wall-meta" class="journey-wall-meta"></p>
+            <p id="journey-wall-summary" class="journey-wall-summary"></p>
+            <div id="journey-wall-tags" class="journey-wall-tags"></div>
+            <a href="https://photo.leoneo.top/">在 PHOTO 查看完整摄影作品 ↗</a>
+          </div>
+        </header>
+        <div id="journey-photo-grid" class="journey-photo-grid"></div>
+      </div>
+    </section>
+
+    <div
+      id="photo-modal"
+      class="photo-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      aria-describedby="modal-description"
+      hidden
+    >
+      <div class="modal-backdrop" data-close-modal="true"></div>
+      <article class="modal-card">
+        <button
+          id="modal-close"
+          class="modal-close"
+          type="button"
+          aria-label="关闭图片卡片"
+        >
+          ×
+        </button>
+
+        <div class="modal-media-wrap">
+          <div class="modal-cover-copy">
+            <h3 id="modal-title" class="modal-title"></h3>
+            <p id="modal-subtitle" class="modal-subtitle"></p>
+          </div>
+          <button
+            id="modal-prev"
+            class="modal-nav modal-nav-prev"
+            type="button"
+            aria-label="上一张"
+          >
+            ‹
+          </button>
+
+          <figure class="modal-figure">
+            <img
+              id="modal-image"
+              class="modal-image"
+              src=""
+              alt=""
+              width="1600"
+              height="1100"
+            />
+          </figure>
+
+          <button
+            id="modal-next"
+            class="modal-nav modal-nav-next"
+            type="button"
+            aria-label="下一张"
+          >
+            ›
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-body-head">
+            <p id="modal-location" class="modal-location"></p>
+            <h4 class="modal-body-title">旅行片段</h4>
+          </div>
+          <p id="modal-description" class="modal-description"></p>
+          <div class="modal-body-foot">
+            <div id="modal-tags" class="chip-row modal-tags"></div>
+            <p id="modal-date" class="modal-date" hidden></p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <script type="module" src="./assets/js/app.js?v=20260929l"></script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>关于 | 旅行的意义</title>
+    <meta
+      name="description"
+      content="关于旅行的意义：一份关于远方、光线与记忆的旅行档案。"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css?v=20260929l" />
+  </head>
+  <body data-page="about">
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="./index.html" aria-label="旅行的意义首页">
+          <span class="brand-mark">旅行的意义</span>
+          <span class="brand-note">远方，光线与记忆</span>
+        </a>
+        <nav class="site-nav" aria-label="主导航">
+          <a href="./index.html">首页</a>
+          <a href="./about.html" aria-current="page">关于</a>
+          <a href="https://photo.leoneo.top/">PHOTO ↗</a>
+        </nav>
+      </header>
+
+      <main class="about-main">
+        <section class="about-hero container">
+          <p class="eyebrow">About</p>
+          <h1 class="about-title">旅行，是另一种阅读</h1>
+          <p class="about-tagline">读山川、城市与人，也在途中重新认识自己。</p>
+        </section>
+
+        <section class="about-editorial container">
+          <header class="about-section-heading">
+            <p class="about-section-index">01 / The Journey</p>
+            <h2>关于这份记录</h2>
+          </header>
+          <div class="about-editorial-copy">
+            <div id="about-text" class="about-text"></div>
+            <a class="about-photo-link" href="https://photo.leoneo.top/">
+              在 PHOTO 查看完整摄影作品 <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="about-places container">
+          <header class="about-places-header">
+            <div>
+              <p class="about-section-index">02 / Places</p>
+              <h2>地图上的章节</h2>
+            </div>
+            <a href="./index.html">返回地图 <span aria-hidden="true">→</span></a>
+          </header>
+
+          <div class="about-place-tools">
+            <label class="about-place-search">
+              <span>查找地点</span>
+              <input
+                id="about-place-search"
+                type="search"
+                placeholder="城市、英文名或国家"
+                autocomplete="off"
+              />
+            </label>
+            <p id="about-place-count" class="about-place-count" aria-live="polite"></p>
+          </div>
+          <div id="about-locations" class="about-location-list"></div>
+          <p id="about-place-empty" class="about-place-empty" hidden>没有找到对应的地点。</p>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p class="footer-copy">世界在路上展开，也在记忆里继续。</p>
+        <div class="footer-links">
+          <a href="./index.html">返回首页</a>
+          <a href="https://photo.leoneo.top/">前往 PHOTO</a>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="./assets/js/app.js?v=20260929l"></script>
+  </body>
+</html>
